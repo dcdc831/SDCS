@@ -90,10 +90,6 @@ func (n *Node) GetCache(key string) []string {
  * @return: int: 修改成功返回1，失败返回0
  */
 func (n *Node) SetCache(key string, value []string) int {
-	if _, ok := n.Cache[key]; ok {
-		n.Cache[key] = value
-		return 1
-	} else {
-		return 0
-	}
+	n.Cache[key] = value
+	return 1
 }

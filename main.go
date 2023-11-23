@@ -1,17 +1,13 @@
 package main
 
 import (
-	"SDCS/node"
-	"fmt"
+	"SDCS/httpagent"
+	"os"
 )
 
 func main() {
-	n := node.NewNode(0, "9870")
-	if ok := n.AddCache("key0", []string{"value1", "value2"}); ok == 0 {
-		fmt.Println("add cache failed")
-	}
-	if ok := n.AddCache("key0", []string{"value1", "value2"}); ok == 0 {
-		fmt.Println("add cache failed")
-	}
-	fmt.Println(n.Cache)
+	args := os.Args[1:]
+
+	agent := httpagent.NewHttpAgent(0, args[0], args[1])
+	agent.StartHttpAgent()
 }
