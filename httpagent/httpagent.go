@@ -140,7 +140,7 @@ func (h *HttpAgent) getCache(c *gin.Context) {
 				c.Status(http.StatusNotFound)
 			}
 		} else {
-			conn, err := grpc.Dial("localhost:"+mapPortRpcPort[nodePort], grpc.WithTransportCredentials(insecure.NewCredentials()))
+			conn, err := grpc.Dial("127.0.0.1:"+mapPortRpcPort[nodePort], grpc.WithTransportCredentials(insecure.NewCredentials()))
 			if err != nil {
 				log.Fatalf("did not connect: %v", err)
 			}
@@ -198,7 +198,7 @@ func (h *HttpAgent) setCache(c *gin.Context) {
 					c.Status(http.StatusOK)
 				}
 			} else {
-				conn, err := grpc.Dial("localhost:"+mapPortRpcPort[nodePort], grpc.WithTransportCredentials(insecure.NewCredentials()))
+				conn, err := grpc.Dial("127.0.0.1:"+mapPortRpcPort[nodePort], grpc.WithTransportCredentials(insecure.NewCredentials()))
 				if err != nil {
 					log.Fatalf("did not connect: %v", err)
 				}
@@ -226,7 +226,7 @@ func (h *HttpAgent) delCache(c *gin.Context) {
 			res := h.node.DelCache(key)
 			c.JSON(http.StatusOK, res)
 		} else {
-			conn, err := grpc.Dial("localhost:"+mapPortRpcPort[nodePort], grpc.WithTransportCredentials(insecure.NewCredentials()))
+			conn, err := grpc.Dial("127.0.0.1:"+mapPortRpcPort[nodePort], grpc.WithTransportCredentials(insecure.NewCredentials()))
 			if err != nil {
 				log.Fatalf("did not connect: %v", err)
 			}

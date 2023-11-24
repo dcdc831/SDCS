@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  container1:
+    image: sdcs
+    network_mode: "host"
+    command: ["9527", "30001"]
+
+  container2:
+    image: sdcs
+    network_mode: "host"
+    command: ["9528", "30002"]
+
+  container3:
+    image: sdcs
+    network_mode: "host"
+    command: ["9529", "30003"]
