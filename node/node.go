@@ -1,19 +1,13 @@
 package node
 
-import (
-	"hash/crc32"
-)
-
 /*
  * @brief: 节点原数据
  * @param: nodeID: 节点id
  * @param: nodePort: 节点端口
- * @param: hash: 节点hash值
  */
 type NodeMetaData struct {
 	nodeID   int
 	nodePort string
-	hash     uint32
 }
 
 /*
@@ -33,10 +27,8 @@ type Node struct {
  * @return: *Node: 节点指针
  */
 func NewNode(id int, port string) *Node {
-	// 根据port生成节点hash值
-	hash := crc32.ChecksumIEEE([]byte(port))
 	return &Node{
-		MetaData: NodeMetaData{nodeID: id, nodePort: port, hash: hash},
+		MetaData: NodeMetaData{nodeID: id, nodePort: port},
 		Cache:    make(map[string][]string),
 	}
 }

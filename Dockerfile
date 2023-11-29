@@ -1,8 +1,10 @@
 FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list &&\
+    sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y curl docker.io
+RUN apt-get install -y curl
 RUN curl -O https://dl.google.com/go/go1.21.3.linux-amd64.tar.gz
 RUN tar xvf go1.21.3.linux-amd64.tar.gz
 RUN mv go /usr/local
