@@ -1,5 +1,5 @@
 # SDCS
-分布式课程作业
+UESTC分布式课程作业
 
 运行流程：
 ```shell
@@ -10,4 +10,3 @@ docker-compose up -d
 # 关闭容器
 docker-compose down
 ```
-注意：需确保能网络环境能联通外网，否则docker build大概率失败。
